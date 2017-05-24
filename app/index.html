@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>demoApp</title>
+</head>
+<body>
+  <div ng-app="demoApp">
+    <header>
+      <h1> lorem ipsum genorator </h1>
+    </header>
+    <main 
+      class="ipsum-container"
+      ng-controller="IpsumController as ipsumCtrl">
+      <form 
+        class="ipsum-create-form"
+        ng-submit="ipsumCtrl.handleSubmit()">
+        <select ng-model="ipsumCtrl.selected">
+          <option 
+            ng-repeat="item in ipsumCtrl.vocabularies track by $index"
+            value="{{item}}">
+            {{item}} 
+          </option>
+        </select>
+        <button type="submit"> Generate Ipsum </button>
+      </form>
+
+      <p> {{ipsumCtrl.content}} </p>
+    </main>
+  </div>
+</body>
+</html>
